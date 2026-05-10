@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login va Dang ki</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="login-container">
+        <h1>Welcome</h1>
+        <div id="auth-message" class="auth-message"></div>
+
+        <div class="form-tabs">
+            <button type="button" class="tab-btn active" data-tab="login">Login</button>
+            <button type="button" class="tab-btn" data-tab="register">Register</button>
+        </div>
+
+        <!-- Login Form -->
+        <form id="login-form" class="tab-content active">
+            <div class="form-group">
+                <label for="login-username">Username hoac Email:</label>
+                <input type="text" id="login-username" name="username" placeholder="Enter your username or email" required>
+            </div>
+
+            <div class="form-group">
+                <label for="login-password">Password:</label>
+                <input type="password" id="login-password" name="password" placeholder="Enter your password" required>
+            </div>
+
+            <button type="submit" class="btn-login">Login</button>
+        </form>
+
+        <!-- Registration Form -->
+        <form id="register-form" class="tab-content">
+            <div class="form-group">
+                <label for="register-fullname">Full Name:</label>
+                <input type="text" id="register-fullname" name="fullname" placeholder="Enter your full name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="register-email">Email:</label>
+                <input type="email" id="register-email" name="email" placeholder="Enter your email address" required>
+            </div>
+
+            <div class="form-group">
+                <label for="register-username">Username:</label>
+                <input type="text" id="register-username" name="username" placeholder="Choose a username" required>
+            </div>
+
+            <div class="form-group">
+                <label for="register-password">Password:</label>
+                <input type="password" id="register-password" name="password" placeholder="Create a password" required>
+            </div>
+
+            <div class="form-group">
+                <label for="register-confirm-password">Confirm Password:</label>
+                <input type="password" id="register-confirm-password" name="confirmPassword" placeholder="Confirm your password" required>
+            </div>
+
+            <div class="form-group">
+                <label>Gender:</label>
+                <div class="gender-group">
+                    <div class="gender-option">
+                        <input type="radio" id="male" name="gender" value="male" required>
+                        <label for="male"> Male</label>
+                    </div>
+                    <div class="gender-option">
+                        <input type="radio" id="female" name="gender" value="female" required>
+                        <label for="female">Female</label>
+                    </div>
+                </div>
+            </div>
+
+            <button type="submit" class="btn-login">Create Account</button>
+        </form>
+
+        <div class="form-footer">
+            <a href="/forgot-password">Forgot Password?</a>
+        </div>
+    </div>
+
+    <script src="auth.js"></script>
+</body>
+</html>
