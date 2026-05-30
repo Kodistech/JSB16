@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rooting Guide</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #121214;
+            color: #e2e8f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .card {
+            background-color: #1a1a1e;
+            border: 1px solid #2d2d34;
+            border-radius: 16px;
+            padding: 32px;
+            max-width: 600px;
+            width: 100%;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 16px;
+            border-left: 4px solid #167c80; 
+            padding-left: 12px;
+        }
+
+        h2 {
+            font-size: 1.3rem;
+            color: #167c80;
+            margin: 24px 0 12px 0;
+            border-bottom: 1px solid #2d2d34;
+            padding-bottom: 6px;
+        }
+
+        p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: #94a3b8;
+            margin-bottom: 16px;
+        }
+
+        .note {
+            background-color: rgba(220, 38, 38, 0.1);
+            border-left: 4px solid #dc2626;
+            padding: 12px;
+            border-radius: 4px;
+            margin-bottom: 20px;
+        }
+
+        .note h4 {
+            color: #f87171;
+            margin-bottom: 4px;
+            font-size: 0.95rem;
+        }
+
+        .note p {
+            margin-bottom: 0;
+            font-size: 0.9rem;
+            color: #fca5a5;
+        }
+
+        ol {
+            margin-left: 20px;
+            margin-bottom: 16px;
+        }
+
+        li {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: #cbd5e1;
+            margin-bottom: 8px;
+        }
+
+        .button-group {
+            margin-top: 32px;
+        }
+
+        .button {
+            display: inline-block;
+            text-align: center;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            padding: 12px 24px;
+            border-radius: 8px;
+            transition: all 0.2s ease;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        /* Nút chính */
+        .button.primary {
+            background-color: #167c80; 
+            color: #ffffff;
+            margin-bottom: 12px;
+        }
+
+        .button.primary:hover {
+            background-color: #199599;
+        }
+
+        /* Nút phụ */
+        .button.secondary {
+            background-color: transparent;
+            color: #94a3b8;
+            border: 1px solid #3f3f46;
+        }
+
+        .button.secondary:hover {
+            background-color: #27272a;
+            color: #ffffff;
+            border-color: #52525b;
+        }
+
+        @media (max-width: 480px) {
+            .card {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <h1>Hướng Dẫn Root Android</h1>
+        <p>Root là quá trình lấy quyền quản trị tối cao (Superuser) của thiết bị Android. Quá trình này thường được sử dụng để tùy biến sâu hệ điều hành hoặc cài đặt các ứng dụng yêu cầu đặc quyền hệ thống.</p>
+        
+        <div class="note">
+            <h4>⚠️ LƯU Ý QUAN TRỌNG:</h4>
+            <p>Thiết bị của bạn bắt buộc phải được <strong>Unlock Bootloader</strong> trước khi thực hiện. Quá trình này có thể làm mất bảo hành và xóa sạch dữ liệu của thiết bị.</p>
+        </div>
+
+        <h2>1. Root bằng Magisk (Phổ biến)</h2>
+        <ol>
+            <li>Tải về file Magisk.zip và Magisk Manager.apk từ trang chính thức của Magisk.</li>
+            <li>Khởi động thiết bị vào chế độ Custom Recovery (TWRP/OrangeFox...).</li>
+            <li>Flash file Magisk.zip thông qua bộ nhớ hoặc USB OTG.</li>
+            <li>Khởi động lại điện thoại và cài đặt Magisk Manager.apk để cấp/quản lý quyền root.</li>
+        </ol>
+
+        <h2>2. Root bằng KernelSU (Hiện đại)</h2>
+        <div class="note" style="background-color: rgba(217, 119, 6, 0.1); border-left-color: #d97706;">
+            <h4 style="color: #fbbf24;">Lưu ý về KernelSU:</h4>
+            <p style="color: #fcd34d;">Yêu cầu thiết bị phải có Kernel hỗ trợ (GKI) và có thể không tương thích với các dòng máy cũ.</p>
+        </div>
+        <ol>
+            <li>Tải ứng dụng KernelSU (file APK) từ trang chủ để kiểm tra trạng thái hỗ trợ của thiết bị.</li>
+            <li>Tìm và tải Custom Kernel được tích hợp sẵn KernelSU dành riêng cho mã máy và phiên bản ROM chính xác của bạn (thường tìm trên XDA Developers).</li>
+            <li>Flash Custom Kernel này qua Custom Recovery.</li>
+            <li>Khởi động lại và mở app KernelSU để quản lý quyền.</li>
+        </ol>
+
+        <h2>3. Root bằng APatch (Giải pháp mới)</h2>
+        <div class="note" style="background-color: rgba(217, 119, 6, 0.1); border-left-color: #d97706;">
+            <h4 style="color: #fbbf24;">Lưu ý về APatch:</h4>
+            <p style="color: #fcd34d;">Chỉ hỗ trợ chip kiến trúc ARM64 và phiên bản Linux Kernel từ 3.18 đến 6.12.</p>
+        </div>
+        <ol>
+            <li>Tải và cài đặt ứng dụng APatch Manager từ GitHub chính thức.</li>
+            <li>Copy file <code>boot.img</code> gốc (trích xuất từ ROM stock đang dùng) vào bộ nhớ máy.</li>
+            <li>Mở APatch, thiết lập <strong>SuperKey</strong> (Mật khẩu bảo mật từ 8-63 ký tự, tránh app độc hại tự chiếm quyền).</li>
+            <li>Chọn file <code>boot.img</code> gốc và nhấn Patch để tạo ra file boot mới đã được vá.</li>
+            <li>Flash file boot đã patch vào máy thông qua chế độ Fastboot trên máy tính (<code>fastboot flash boot_name.img</code>).</li>
+            <li>Khởi động lại và kiểm tra quyền root trong ứng dụng APatch Manager.</li>
+        </ol>
+
+        <div class="button-group">
+            <a href="https://topjohnwu.github.io/Magisk/" class="button primary" target="_blank">Trang chủ Magisk</a>
+            <a href="main.html" class="button secondary">Quay lại Diễn đàn</a>
+        </div>
+    </div>
+</body>
+</html>

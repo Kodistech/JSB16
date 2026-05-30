@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hướng dẫn Odin - Samsung</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #121214;
+            color: #e2e8f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .card {
+            background-color: #1a1a1e;
+            border: 1px solid #2d2d34;
+            border-radius: 16px;
+            padding: 32px;
+            max-width: 600px;
+            width: 100%;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 16px;
+            border-left: 4px solid #2563eb; 
+            padding-left: 12px;
+        }
+
+        h2 {
+            font-size: 1.3rem;
+            color: #2563eb;
+            margin: 24px 0 12px 0;
+            border-bottom: 1px solid #2d2d34;
+            padding-bottom: 6px;
+        }
+
+        p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: #94a3b8;
+            margin-bottom: 16px;
+        }
+
+        .note {
+            background-color: rgba(217, 119, 6, 0.1);
+            border-left: 4px solid #d97706;
+            padding: 12px;
+            border-radius: 4px;
+            margin-bottom: 20px;
+        }
+
+        .note h4 {
+            color: #fbbf24;
+            margin-bottom: 4px;
+            font-size: 0.95rem;
+        }
+
+        .note p {
+            margin-bottom: 0;
+            font-size: 0.9rem;
+            color: #fcd34d;
+        }
+
+        ol {
+            margin-left: 20px;
+            margin-bottom: 16px;
+        }
+
+        li {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: #cbd5e1;
+            margin-bottom: 10px;
+        }
+
+        code {
+            background-color: #2d2d34;
+            color: #f43f5e;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <h1>Odin Flashing Tool</h1>
+        
+        <h2>Odin là gì?</h2>
+        <p>Odin là một phần mềm flash phần sụn (Firmware) chuyên dụng được sử dụng chủ yếu cho các thiết bị Samsung. Công cụ này cho phép người dùng cài đặt ROM gốc (Stock ROM), ROM tùy chỉnh, Custom Kernel, Custom Recovery (TWRP) và các tệp tin hệ thống khác thông qua chế độ <strong>Download Mode</strong>.</p>
+
+        <h2>Cách sử dụng Odin để flash Recovery (TWRP):</h2>
+        <ol>
+            <li>Tải về phiên bản <strong>Odin</strong> mới nhất và cài đặt driver USB Samsung trên máy tính của bạn.</li>
+            <li>Tải về file recovery tùy chỉnh (định dạng <code>.tar</code> hoặc <code>.tar.md5</code>, ví dụ: TWRP) phù hợp chính xác với mã thiết bị Samsung của bạn. Tải kèm file <code>vbmeta.tar</code> nếu thiết bị chạy Android đời cao.</li>
+            <li>Tắt hẳn nguồn thiết bị. Bấm giữ đồng thời 2 phím <strong>Tăng âm lượng + Giảm âm lượng</strong> và cắm cáp kết nối với máy tính để đưa điện thoại vào chế độ <strong>Download Mode</strong> (Nhấn tiếp phím Tăng âm lượng để xác nhận nếu màn hình yêu cầu).</li>
+            <li>Mở phần mềm Odin trên máy tính. Ô <code>ID:COM</code> sẽ sáng đèn màu xanh (hoặc vàng) báo hiệu Odin đã nhận diện được thiết bị.</li>
+            <li>Trên giao diện Odin:
+                <ul>
+                    <li>Click vào nút <strong>AP</strong> và chọn file TWRP recovery (<code>twrp...tar</code>).</li>
+                    <li>Click vào nút <strong>USERDATA</strong> (hoặc ô <strong>CP</strong> tùy hướng dẫn của dòng máy) để chọn file <code>vbmeta.tar</code> nhằm tắt tính năng xác thực phân vùng của Samsung.</li>
+                </ul>
+            </li>
+            <li><strong>Quan trọng:</strong> Chuyển sang tab <code>Options</code> trên Odin và <strong>bỏ chọn (uncheck)</strong> mục <code>Auto Reboot</code>.</li>
+            <li>Nhấn nút <strong>Start</strong> để bắt đầu quá trình nạp dữ liệu. Hãy đợi cho đến khi ô trạng thái hiện chữ <span style="color: #22c55e; font-weight: bold;">PASS</span>.</li>
+            <li>Vì đã tắt Auto Reboot, điện thoại sẽ không tự khởi động lại. Hãy bấm giữ tổ hợp phím phím <strong>Nguồn + Giảm âm lượng</strong> để tắt máy, ngay khi màn hình vừa tắt, lập tức chuyển sang giữ phím <strong>Nguồn + Tăng âm lượng</strong> để cưỡng bức thiết bị boot thẳng vào chế độ TWRP Recovery vừa flash.</li>
+        </ol>
+
+        <div class="note">
+            <h4>⚠️ LƯU Ý:</h4>
+            <p>Nếu bạn để thiết bị tự khởi động lại vào hệ điều hành gốc (Stock ROM) ngay sau khi flash, hệ thống bảo mật của Samsung sẽ tự động ghi đè và xóa bỏ hoàn toàn TWRP bạn vừa cài đặt.</p>
+        </div>
+      <div class="button-group">
+            <a href="https://odindownload.com/" class="button primary" target="_blank">Trang chủ Odin</a>
+            <a href="main.html" class="button secondary">Quay lại Diễn đàn</a>
+        </div>  
+    </div>
+
+</body>
+</html>
